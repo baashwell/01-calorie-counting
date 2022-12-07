@@ -17,11 +17,17 @@ func GetElvesCalories(food_items []string) int {
 }
 
 func GetElvesFoodSupply(elves_food_supply_string string) [][]string {
+	elves := 0
 	elves_food_supply := make([][]string, 1)
 	split_elves_food_supply := strings.Split(elves_food_supply_string, "\n")
 
 	for _, food_item := range split_elves_food_supply {
-		elves_food_supply[0] = append(elves_food_supply[0], food_item)
+		if food_item == "" {
+			elves = elves + 1
+			elves_food_supply = append(elves_food_supply, make([]string, 0))
+		} else {
+			elves_food_supply[elves] = append(elves_food_supply[elves], food_item)
+		}
 	}
 
 	return elves_food_supply
