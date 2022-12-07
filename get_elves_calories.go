@@ -12,3 +12,7 @@ func GetElvesCalories(food_items []string) int {
 
 	return total_calories
 }
+
+func GetElvesFoodSupply(s string) [][]string {
+	return [][]string{{"1000"}}
+}
