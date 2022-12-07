@@ -1,6 +1,9 @@
 package calorie_counting
 
-import "strconv"
+import (
+	"strconv"
+	"strings"
+)
 
 func GetElvesCalories(food_items []string) int {
 	total_calories := 0
@@ -13,6 +16,13 @@ func GetElvesCalories(food_items []string) int {
 	return total_calories
 }
 
-func GetElvesFoodSupply(s string) [][]string {
-	return [][]string{{"1000"}}
+func GetElvesFoodSupply(elves_food_supply_string string) [][]string {
+	elves_food_supply := make([][]string, 1)
+	split_elves_food_supply := strings.Split(elves_food_supply_string, "\n")
+
+	for _, food_item := range split_elves_food_supply {
+		elves_food_supply[0] = append(elves_food_supply[0], food_item)
+	}
+
+	return elves_food_supply
 }

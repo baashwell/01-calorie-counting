@@ -37,4 +37,16 @@ func TestGetElvesFoodSupply(t *testing.T) {
 			}
 		}
 	})
+	t.Run("Test Get Elves Food Supply for one elf with multiple food item returns list of the elfs food supply", func(t *testing.T) {
+		expected := [][]string{{"1000", "2000", "3000"}}
+		result := GetElvesFoodSupply("1000\n2000\n3000")
+
+		for i, elf := range expected {
+			for j, food_item := range elf {
+				if food_item != result[i][j] {
+					t.Errorf("expected %q result %q", food_item, result[i][j])
+				}
+			}
+		}
+	})
 }
