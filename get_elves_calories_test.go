@@ -84,4 +84,12 @@ func TestGetHighestCalorieAmount(t *testing.T) {
 			t.Errorf("expected %q result %q", strconv.Itoa(expected), strconv.Itoa(result))
 		}
 	})
+	t.Run("Test Get Highest Calorie Amount for one elf with multiple food items returns calories for the one food item", func(t *testing.T) {
+		expected := 3000
+		result := GetHighestCalorieAmount("1000\n2000")
+
+		if expected != result {
+			t.Errorf("expected %q result %q", strconv.Itoa(expected), strconv.Itoa(result))
+		}
+	})
 }

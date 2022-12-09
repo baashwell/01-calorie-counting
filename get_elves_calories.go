@@ -34,5 +34,16 @@ func GetElvesFoodSupply(elves_food_supply_string string) [][]string {
 }
 
 func GetHighestCalorieAmount(elves_food_supply_string string) int {
-	return 1000
+	highest_amount := 0
+
+	elves_food_supply := GetElvesFoodSupply(elves_food_supply_string)
+
+	for _, elf := range elves_food_supply {
+		elf_calories := GetElvesCalories(elf)
+		if elf_calories > highest_amount {
+			highest_amount = elf_calories
+		}
+	}
+
+	return highest_amount
 }
