@@ -74,3 +74,14 @@ func TestGetElvesFoodSupply(t *testing.T) {
 		}
 	})
 }
+
+func TestGetHighestCalorieAmount(t *testing.T) {
+	t.Run("Test Get Highest Calorie Amount for one elf with one food item returns calories for the one food item", func(t *testing.T) {
+		expected := 1000
+		result := GetHighestCalorieAmount("1000")
+
+		if expected != result {
+			t.Errorf("expected %q result %q", strconv.Itoa(expected), strconv.Itoa(result))
+		}
+	})
+}

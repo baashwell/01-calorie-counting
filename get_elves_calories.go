@@ -32,3 +32,7 @@ func GetElvesFoodSupply(elves_food_supply_string string) [][]string {
 
 	return elves_food_supply
 }
+
+func GetHighestCalorieAmount(elves_food_supply_string string) int {
+	return 1000
+}
