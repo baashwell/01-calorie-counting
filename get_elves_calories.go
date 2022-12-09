@@ -1,6 +1,7 @@
 package calorie_counting
 
 import (
+	"sort"
 	"strconv"
 	"strings"
 )
@@ -34,16 +35,15 @@ func GetElvesFoodSupply(elves_food_supply_string string) [][]string {
 }
 
 func GetElvesWithHighestCalories(elves_food_supply_string string, amount_to_return int) []int {
-	highest_amount := 0
+	elves_total_calories := make([]int, 1)
 
 	elves_food_supply := GetElvesFoodSupply(elves_food_supply_string)
 
 	for _, elf := range elves_food_supply {
 		elf_calories := GetElvesCalories(elf)
-		if elf_calories > highest_amount {
-			highest_amount = elf_calories
-		}
+		elves_total_calories = append(elves_total_calories, elf_calories)
 	}
 
-	return []int{highest_amount}
+	sort.Sort(sort.Reverse(sort.IntSlice(elves_total_calories)))
+	return elves_total_calories[0:amount_to_return]
 }
