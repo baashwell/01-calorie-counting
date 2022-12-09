@@ -33,7 +33,7 @@ func GetElvesFoodSupply(elves_food_supply_string string) [][]string {
 	return elves_food_supply
 }
 
-func GetHighestCalorieAmount(elves_food_supply_string string) []int {
+func GetElvesWithHighestCalories(elves_food_supply_string string, amount_to_return int) []int {
 	highest_amount := 0
 
 	elves_food_supply := GetElvesFoodSupply(elves_food_supply_string)
