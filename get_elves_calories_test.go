@@ -122,3 +122,15 @@ func TestGetPuzzleAnswer(t *testing.T) {
 		}
 	})
 }
+
+func TestGetPuzzle2Answer(t *testing.T) {
+	t.Run("Run", func(t *testing.T) {
+		expected := 205805
+		result_slice := GetElvesWithHighestCalories(INPUT, 3)
+		result := result_slice[0] + result_slice[1] + result_slice[2]
+
+		if expected != result {
+			t.Errorf("expected %q result %q", strconv.Itoa(expected), strconv.Itoa(result))
+		}
+	})
+}
