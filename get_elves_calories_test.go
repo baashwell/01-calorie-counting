@@ -78,7 +78,7 @@ func TestGetElvesFoodSupply(t *testing.T) {
 func TestGetHighestCalorieAmount(t *testing.T) {
 	t.Run("Test Get Highest Calorie Amount for one elf with one food item returns calories for the one food item", func(t *testing.T) {
 		expected := 1000
-		result := GetHighestCalorieAmount("1000")
+		result := GetHighestCalorieAmount("1000")[0]
 
 		if expected != result {
 			t.Errorf("expected %q result %q", strconv.Itoa(expected), strconv.Itoa(result))
@@ -86,7 +86,7 @@ func TestGetHighestCalorieAmount(t *testing.T) {
 	})
 	t.Run("Test Get Highest Calorie Amount for one elf with multiple food items returns calories for the one food item", func(t *testing.T) {
 		expected := 3000
-		result := GetHighestCalorieAmount("1000\n2000")
+		result := GetHighestCalorieAmount("1000\n2000")[0]
 
 		if expected != result {
 			t.Errorf("expected %q result %q", strconv.Itoa(expected), strconv.Itoa(result))
@@ -94,10 +94,21 @@ func TestGetHighestCalorieAmount(t *testing.T) {
 	})
 	t.Run("Test Get Highest Calorie Amount for multiple elves with multiple food items returns calories for the one food item", func(t *testing.T) {
 		expected := 11000
-		result := GetHighestCalorieAmount("1000\n2000\n\n2000\n\n3000\n1000\n7000")
+		result := GetHighestCalorieAmount("1000\n2000\n\n2000\n\n3000\n1000\n7000")[0]
 
 		if expected != result {
 			t.Errorf("expected %q result %q", strconv.Itoa(expected), strconv.Itoa(result))
+		}
+	})
+}
+
+func TestGetPuzzleAnswer(t *testing.T) {
+	t.Run("Run", func(t *testing.T) {
+		expected := 70613
+		result := GetHighestCalorieAmount(INPUT)
+
+		if expected != result[0] {
+			t.Errorf("expected %q result %q", strconv.Itoa(expected), strconv.Itoa(result[0]))
 		}
 	})
 }
