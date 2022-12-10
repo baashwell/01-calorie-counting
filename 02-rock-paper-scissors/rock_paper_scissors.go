@@ -23,6 +23,11 @@ func GetGameResult(player_choice Choice, opponent_choice Choice) Result {
 			Paper:    Lose,
 			Scissors: Win,
 		},
+		Paper: {
+			Rock:     Win,
+			Paper:    Draw,
+			Scissors: Lose,
+		},
 	}
 
 	return game_results[player_choice][opponent_choice]

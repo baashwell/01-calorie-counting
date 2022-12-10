@@ -12,6 +12,9 @@ var get_game_result_test_set = []struct {
 	{Rock, Scissors, Win},
 	{Rock, Paper, Lose},
 	{Rock, Rock, Draw},
+	{Paper, Scissors, Lose},
+	{Paper, Paper, Draw},
+	{Paper, Rock, Win},
 }
 
 func TestGetGameResult(t *testing.T) {
