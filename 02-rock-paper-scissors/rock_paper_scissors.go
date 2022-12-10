@@ -94,3 +94,7 @@ func GetTotalPointsForPlayer(input string) int {
 
 	return total_points
 }
+
+func GetChoiceToMake(opponent_choice Choice, result Result) Choice {
+	return Paper
+}

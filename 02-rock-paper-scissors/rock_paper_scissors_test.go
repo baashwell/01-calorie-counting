@@ -116,3 +116,22 @@ func TestPuzzleInput(t *testing.T) {
 
 	})
 }
+
+var get_choice_to_make_test_set = []struct {
+	opponents_choice Choice
+	result           Result
+	expected_choice  Choice
+}{
+	{Rock, Win, Paper},
+}
+
+func TestGetChoiceToMakeResult(t *testing.T) {
+	t.Run("Test Get Choice x When opponents choice is Y and result is Z", func(t *testing.T) {
+		for _, test := range get_choice_to_make_test_set {
+			result := GetChoiceToMake(test.opponents_choice, test.result)
+			if test.expected_choice != result {
+				t.Errorf("expected %q result %q", test.expected_choice, result)
+			}
+		}
+	})
+}
