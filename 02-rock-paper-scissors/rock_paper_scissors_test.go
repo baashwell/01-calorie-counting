@@ -30,3 +30,22 @@ func TestGetGameResult(t *testing.T) {
 		}
 	})
 }
+
+var get_game_points_test_set = []struct {
+	player_choice   Choice
+	game_result     Result
+	expected_points int
+}{
+	{Rock, Win, 7},
+}
+
+func TestGetGamePoints(t *testing.T) {
+	t.Run("Test Game Points is X when player choose Y and Result was Z", func(t *testing.T) {
+		for _, test := range get_game_points_test_set {
+			result := GetGamePoints(test.player_choice, test.game_result)
+			if test.expected_points != result {
+				t.Errorf("expected %q result %q", test.expected_points, result)
+			}
+		}
+	})
+}

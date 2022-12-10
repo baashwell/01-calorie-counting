@@ -37,3 +37,7 @@ var game_results = map[Choice]map[Choice]Result{
 func GetGameResult(player_choice Choice, opponent_choice Choice) Result {
 	return game_results[player_choice][opponent_choice]
 }
+
+func GetGamePoints(player_choice Choice, game_result Result) int {
+	return 7
+}
