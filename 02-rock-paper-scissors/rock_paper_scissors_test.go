@@ -57,3 +57,21 @@ func TestGetGamePoints(t *testing.T) {
 		}
 	})
 }
+
+var get_choice_from_string_test_set = []struct {
+	string_input    string
+	expected_choice Choice
+}{
+	{"A", Rock},
+}
+
+func TestGetChoiceFromString(t *testing.T) {
+	t.Run("Test Get Choice is X when string is Y", func(t *testing.T) {
+		for _, test := range get_choice_from_string_test_set {
+			result := GetChoiceFromString(test.string_input)
+			if test.expected_choice != result {
+				t.Errorf("expected %q result %q", test.expected_choice, result)
+			}
+		}
+	})
+}

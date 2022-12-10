@@ -63,3 +63,7 @@ func GetChoicePoints(player_choice Choice) int {
 		return 3
 	}
 }
+
+func GetChoiceFromString(input string) Choice {
+	return Rock
+}
