@@ -39,6 +39,9 @@ var get_game_points_test_set = []struct {
 	{Rock, Win, 7},
 	{Paper, Win, 8},
 	{Scissors, Win, 9},
+	{Rock, Draw, 4},
+	{Paper, Draw, 5},
+	{Scissors, Draw, 6},
 }
 
 func TestGetGamePoints(t *testing.T) {

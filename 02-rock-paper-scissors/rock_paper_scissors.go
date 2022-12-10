@@ -39,7 +39,16 @@ func GetGameResult(player_choice Choice, opponent_choice Choice) Result {
 }
 
 func GetGamePoints(player_choice Choice, game_result Result) int {
-	return 6 + GetChoicePoints(player_choice)
+	return GetResultPoints(game_result) + GetChoicePoints(player_choice)
+}
+
+func GetResultPoints(game_result Result) int {
+	switch game_result {
+	case Win:
+		return 6
+	default:
+		return 3
+	}
 }
 
 func GetChoicePoints(player_choice Choice) int {
