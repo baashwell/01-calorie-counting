@@ -66,9 +66,9 @@ func GetChoicePoints(player_choice Choice) int {
 
 func GetChoiceFromString(input string) Choice {
 	switch input {
-	case "A":
+	case "A", "X":
 		return Rock
-	case "B":
+	case "B", "Y":
 		return Paper
 	default:
 		return Scissors
