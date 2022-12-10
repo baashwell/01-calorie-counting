@@ -80,3 +80,21 @@ func TestGetChoiceFromString(t *testing.T) {
 		}
 	})
 }
+
+var get_total_points_for_player_test_set = []struct {
+	string_input    string
+	expected_points int
+}{
+	{"A Y", 8},
+}
+
+func TestGetTotalPoints(t *testing.T) {
+	t.Run("Test Get total points is X when string is Y", func(t *testing.T) {
+		for _, test := range get_total_points_for_player_test_set {
+			result := GetTotalPointsForPlayer(test.string_input)
+			if test.expected_points != result {
+				t.Errorf("expected %q result %q", test.expected_points, result)
+			}
+		}
+	})
+}

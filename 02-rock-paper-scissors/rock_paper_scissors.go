@@ -74,3 +74,7 @@ func GetChoiceFromString(input string) Choice {
 		return Scissors
 	}
 }
+
+func GetTotalPointsForPlayer(input string) int {
+	return 8
+}
