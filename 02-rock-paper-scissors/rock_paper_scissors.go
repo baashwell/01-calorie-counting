@@ -68,7 +68,9 @@ func GetChoiceFromString(input string) Choice {
 	switch input {
 	case "A":
 		return Rock
-	default:
+	case "B":
 		return Paper
+	default:
+		return Scissors
 	}
 }

@@ -64,6 +64,7 @@ var get_choice_from_string_test_set = []struct {
 }{
 	{"A", Rock},
 	{"B", Paper},
+	{"C", Scissors},
 }
 
 func TestGetChoiceFromString(t *testing.T) {
