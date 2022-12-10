@@ -105,3 +105,14 @@ func TestGetTotalPoints(t *testing.T) {
 		}
 	})
 }
+
+func TestPuzzleInput(t *testing.T) {
+	t.Run("Test Get total points for puzzle inut", func(t *testing.T) {
+		expected := 12794
+		result := GetTotalPointsForPlayer(puzzle_input)
+		if expected != result {
+			t.Errorf("expected %q result %q", strconv.Itoa(expected), strconv.Itoa(result))
+		}
+
+	})
+}
