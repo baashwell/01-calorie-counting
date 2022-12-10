@@ -16,19 +16,24 @@ const (
 	Lose
 )
 
-func GetGameResult(player_choice Choice, opponent_choice Choice) Result {
-	game_results := map[Choice]map[Choice]Result{
-		Rock: {
-			Rock:     Draw,
-			Paper:    Lose,
-			Scissors: Win,
-		},
-		Paper: {
-			Rock:     Win,
-			Paper:    Draw,
-			Scissors: Lose,
-		},
-	}
+var game_results = map[Choice]map[Choice]Result{
+	Rock: {
+		Rock:     Draw,
+		Paper:    Lose,
+		Scissors: Win,
+	},
+	Paper: {
+		Rock:     Win,
+		Paper:    Draw,
+		Scissors: Lose,
+	},
+	Scissors: {
+		Rock:     Lose,
+		Paper:    Win,
+		Scissors: Draw,
+	},
+}
 
+func GetGameResult(player_choice Choice, opponent_choice Choice) Result {
 	return game_results[player_choice][opponent_choice]
 }
