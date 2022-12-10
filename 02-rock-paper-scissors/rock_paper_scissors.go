@@ -43,9 +43,10 @@ func GetGamePoints(player_choice Choice, game_result Result) int {
 
 	if player_choice == Rock {
 		points += 1
-	}
-	if player_choice == Paper {
+	} else if player_choice == Paper {
 		points += 2
+	} else {
+		points += 3
 	}
 
 	return points
