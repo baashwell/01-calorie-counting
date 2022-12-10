@@ -17,5 +17,13 @@ const (
 )
 
 func GetGameResult(player_choice Choice, opponent_choice Choice) Result {
-	return Win
+	game_results := map[Choice]map[Choice]Result{
+		Rock: {
+			Rock:     Draw,
+			Paper:    Lose,
+			Scissors: Win,
+		},
+	}
+
+	return game_results[player_choice][opponent_choice]
 }
