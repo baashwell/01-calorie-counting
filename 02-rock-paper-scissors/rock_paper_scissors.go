@@ -39,5 +39,14 @@ func GetGameResult(player_choice Choice, opponent_choice Choice) Result {
 }
 
 func GetGamePoints(player_choice Choice, game_result Result) int {
-	return 7
+	points := 6
+
+	if player_choice == Rock {
+		points += 1
+	}
+	if player_choice == Paper {
+		points += 2
+	}
+
+	return points
 }
