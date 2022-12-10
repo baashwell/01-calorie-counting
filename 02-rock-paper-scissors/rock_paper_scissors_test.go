@@ -4,29 +4,23 @@ import (
 	"testing"
 )
 
+var get_game_result_test_set = []struct {
+	player_choice   Choice
+	opponent_choice Choice
+	expected_result Result
+}{
+	{Rock, Scissors, Win},
+	{Rock, Paper, Lose},
+	{Rock, Rock, Draw},
+}
+
 func TestGetGameResult(t *testing.T) {
-	t.Run("Test Does Player Win when player has Rock and opponent has Scissors", func(t *testing.T) {
-		expected := Win
-		result := GetGameResult(Rock, Scissors)
-
-		if expected != result {
-			t.Errorf("expected %q result %q", expected, result)
-		}
-	})
-	t.Run("Test Does Player Lose when player has Rock and opponent has Paper", func(t *testing.T) {
-		expected := Lose
-		result := GetGameResult(Rock, Paper)
-
-		if expected != result {
-			t.Errorf("expected %q result %q", expected, result)
-		}
-	})
-	t.Run("Test Does Player Draw when player has Rock and opponent has Rock", func(t *testing.T) {
-		expected := Draw
-		result := GetGameResult(Rock, Rock)
-
-		if expected != result {
-			t.Errorf("expected %q result %q", expected, result)
+	t.Run("Test Game Result is X when player has Y and opponent has Z", func(t *testing.T) {
+		for _, test := range get_game_result_test_set {
+			result := GetGameResult(test.player_choice, test.opponent_choice)
+			if test.expected_result != result {
+				t.Errorf("expected %q result %q", test.expected_result, result)
+			}
 		}
 	})
 }
