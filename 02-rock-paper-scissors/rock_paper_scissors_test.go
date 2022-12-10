@@ -1,6 +1,7 @@
 package rock_paper_scissors
 
 import (
+	"strconv"
 	"testing"
 )
 
@@ -86,6 +87,12 @@ var get_total_points_for_player_test_set = []struct {
 	expected_points int
 }{
 	{"A Y", 8},
+	{
+		`A Y
+B X
+C Z`,
+		15,
+	},
 }
 
 func TestGetTotalPoints(t *testing.T) {
@@ -93,7 +100,7 @@ func TestGetTotalPoints(t *testing.T) {
 		for _, test := range get_total_points_for_player_test_set {
 			result := GetTotalPointsForPlayer(test.string_input)
 			if test.expected_points != result {
-				t.Errorf("expected %q result %q", test.expected_points, result)
+				t.Errorf("expected %q result %q", strconv.Itoa(test.expected_points), strconv.Itoa(result))
 			}
 		}
 	})

@@ -1,5 +1,9 @@
 package rock_paper_scissors
 
+import (
+	"strings"
+)
+
 type Choice int64
 
 const (
@@ -76,5 +80,17 @@ func GetChoiceFromString(input string) Choice {
 }
 
 func GetTotalPointsForPlayer(input string) int {
-	return 8
+	total_points := 0
+	rounds := strings.Split(input, "\n")
+
+	for _, round := range rounds {
+		choices := strings.Split(round, " ")
+		opponent_choice := GetChoiceFromString(choices[0])
+		player_choice := GetChoiceFromString(choices[1])
+
+		result := GetGameResult(player_choice, opponent_choice)
+		total_points += GetGamePoints(player_choice, result)
+	}
+
+	return total_points
 }
