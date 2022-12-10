@@ -46,6 +46,8 @@ func GetResultPoints(game_result Result) int {
 	switch game_result {
 	case Win:
 		return 6
+	case Lose:
+		return 0
 	default:
 		return 3
 	}
