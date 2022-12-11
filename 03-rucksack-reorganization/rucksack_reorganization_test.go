@@ -112,6 +112,10 @@ var multiple_rucksacks_test_set = []struct {
 	expected_priority int
 }{
 	{"aa", 1},
+	{`aa
+abcdef`, 1},
+	{`aa
+abcadf`, 2},
 }
 
 func TestGetPriorityOfMultipleRucksacks(t *testing.T) {

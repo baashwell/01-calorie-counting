@@ -1,5 +1,7 @@
 package rucksack_reorganization
 
+import "strings"
+
 func GetPriorityValueOfCharacter(character rune) int {
 	differential := 38
 
@@ -55,5 +57,18 @@ func GetRucksackCompartments(rucksack []rune) [][]rune {
 }
 
 func GetPriorityOfMultipleRucksacks(input string) int {
-	return 1
+	rucksacks := strings.Split(input, "\n")
+	total_priority := 0
+
+	for _, rucksack := range rucksacks {
+		rucksack_as_runes := make([]rune, 0)
+
+		for _, character := range rucksack {
+			rucksack_as_runes = append(rucksack_as_runes, character)
+		}
+
+		total_priority += GetPriorityOfDuplicatedCharactersInRucksackCompartments(rucksack_as_runes)
+	}
+
+	return total_priority
 }
