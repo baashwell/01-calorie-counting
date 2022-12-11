@@ -167,3 +167,14 @@ func TestGetTotalPointsWhenGivenOpponentChoiceAndResult(t *testing.T) {
 		}
 	})
 }
+
+func TestPuzzleInput2(t *testing.T) {
+	t.Run("Test Get total points for puzzle input 2", func(t *testing.T) {
+		expected := 14979
+		result := GetTotalPointsWhenGivenOpponentChoiceAndResult(puzzle_input)
+		if expected != result {
+			t.Errorf("expected %q result %q", strconv.Itoa(expected), strconv.Itoa(result))
+		}
+
+	})
+}
