@@ -63,3 +63,21 @@ func TestGetCharactersExistingInBothSlices(t *testing.T) {
 		}
 	})
 }
+
+var total_priority_of_slice_test_set = []struct {
+	slice_1           []rune
+	expected_priority int
+}{
+	{[]rune{'a'}, 1},
+}
+
+func TestGetTotalPriorityOfSlice(t *testing.T) {
+	t.Run("Test total priority of slice is X when slice is Y", func(t *testing.T) {
+		for _, test := range total_priority_of_slice_test_set {
+			result := GetTotalPriorityOfSlice(test.slice_1)
+			if test.expected_priority != result {
+				t.Errorf("expected %q result %q", strconv.Itoa(test.expected_priority), strconv.Itoa(result))
+			}
+		}
+	})
+}
