@@ -8,6 +8,13 @@ var character_priority_test_set = []struct {
 }{
 	{'a', 1},
 	{'b', 2},
+	{'c', 3},
+	{'d', 4},
+	{'m', 13},
+	{'r', 18},
+	{'t', 20},
+	{'v', 22},
+	{'z', 26},
 }
 
 func TestGetPriorityValueOfCharacter(t *testing.T) {
