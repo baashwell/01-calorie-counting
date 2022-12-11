@@ -49,6 +49,7 @@ var characters_in_both_slices_test_set = []struct {
 	{[]rune{'a', 'b', 'c'}, []rune{'d', 'e', 'f'}, []rune{}},
 	{[]rune{'a', 'b', 'c'}, []rune{'a', 'b', 'f'}, []rune{'a', 'b'}},
 	{[]rune{'d', 'e', 'f'}, []rune{'d', 'e', 'f'}, []rune{'d', 'e', 'f'}},
+	{[]rune{'a', 'a', 'a'}, []rune{'a', 'a', 'a'}, []rune{'a'}},
 }
 
 func TestGetCharactersExistingInBothSlices(t *testing.T) {
@@ -116,6 +117,12 @@ var multiple_rucksacks_test_set = []struct {
 abcdef`, 1},
 	{`aa
 abcadf`, 2},
+	{`vJrwpWtwJgWrhcsFMMfFFhFp
+jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+PmmdzqPrVvPwwTWBwg
+wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+ttgJtRGJQctTZtZT
+CrZsJsPPZsGzwwsLwLmpwMDw`, 157},
 }
 
 func TestGetPriorityOfMultipleRucksacks(t *testing.T) {

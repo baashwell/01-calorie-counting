@@ -16,13 +16,23 @@ func GetCharactersExistingInBothSlices(slice_1 []rune, slice_2 []rune) []rune {
 	duplicate_characters := []rune{}
 
 	for _, slice_1_char := range slice_1 {
-		for _, slice_2_char := range slice_2 {
-			if slice_1_char == slice_2_char {
+		if DoesCharacterExistInSlice(slice_1_char, slice_2) {
+			if !DoesCharacterExistInSlice(slice_1_char, duplicate_characters) {
 				duplicate_characters = append(duplicate_characters, slice_1_char)
 			}
 		}
 	}
 	return duplicate_characters
+}
+
+func DoesCharacterExistInSlice(character rune, slice []rune) bool {
+	for _, slice_char := range slice {
+		if character == slice_char {
+			return true
+		}
+	}
+
+	return false
 }
 
 func GetTotalPriorityOfSlice(slice []rune) int {
