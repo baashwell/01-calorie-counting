@@ -79,7 +79,18 @@ func GetChoiceFromString(input string) Choice {
 	}
 }
 
-func GetTotalPointsForPlayer(input string) int {
+func GetResultFromString(input string) Result {
+	switch input {
+	case "X":
+		return Lose
+	case "Y":
+		return Draw
+	default:
+		return Win
+	}
+}
+
+func GetTotalPointsWhenWeGivenChoices(input string) int {
 	total_points := 0
 	rounds := strings.Split(input, "\n")
 
@@ -89,6 +100,22 @@ func GetTotalPointsForPlayer(input string) int {
 		player_choice := GetChoiceFromString(choices[1])
 
 		result := GetGameResult(player_choice, opponent_choice)
+		total_points += GetGamePoints(player_choice, result)
+	}
+
+	return total_points
+}
+
+func GetTotalPointsWhenGivenOpponentChoiceAndResult(input string) int {
+	total_points := 0
+	rounds := strings.Split(input, "\n")
+
+	for _, round := range rounds {
+		choices := strings.Split(round, " ")
+		opponent_choice := GetChoiceFromString(choices[0])
+		result := GetResultFromString(choices[1])
+		player_choice := GetChoiceToMake(opponent_choice, result)
+
 		total_points += GetGamePoints(player_choice, result)
 	}
 

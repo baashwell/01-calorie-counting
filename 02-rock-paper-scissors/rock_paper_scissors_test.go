@@ -95,10 +95,10 @@ C Z`,
 	},
 }
 
-func TestGetTotalPoints(t *testing.T) {
+func TestGetTotalPointsWhenWeGivenChoices(t *testing.T) {
 	t.Run("Test Get total points is X when string is Y", func(t *testing.T) {
 		for _, test := range get_total_points_for_player_test_set {
-			result := GetTotalPointsForPlayer(test.string_input)
+			result := GetTotalPointsWhenWeGivenChoices(test.string_input)
 			if test.expected_points != result {
 				t.Errorf("expected %q result %q", strconv.Itoa(test.expected_points), strconv.Itoa(result))
 			}
@@ -107,9 +107,9 @@ func TestGetTotalPoints(t *testing.T) {
 }
 
 func TestPuzzleInput(t *testing.T) {
-	t.Run("Test Get total points for puzzle inut", func(t *testing.T) {
+	t.Run("Test Get total points for puzzle input", func(t *testing.T) {
 		expected := 12794
-		result := GetTotalPointsForPlayer(puzzle_input)
+		result := GetTotalPointsWhenWeGivenChoices(puzzle_input)
 		if expected != result {
 			t.Errorf("expected %q result %q", strconv.Itoa(expected), strconv.Itoa(result))
 		}
@@ -139,6 +139,30 @@ func TestGetChoiceToMakeResult(t *testing.T) {
 			result := GetChoiceToMake(test.opponents_choice, test.result)
 			if test.expected_choice != result {
 				t.Errorf("expected %q result %q", test.expected_choice, result)
+			}
+		}
+	})
+}
+
+var get_total_points_for_player_with_result_test_set = []struct {
+	string_input    string
+	expected_points int
+}{
+	{"A Y", 4},
+	{
+		`A Y
+B X
+C Z`,
+		12,
+	},
+}
+
+func TestGetTotalPointsWhenGivenOpponentChoiceAndResult(t *testing.T) {
+	t.Run("Test Get total points is X when string is Y", func(t *testing.T) {
+		for _, test := range get_total_points_for_player_with_result_test_set {
+			result := GetTotalPointsWhenGivenOpponentChoiceAndResult(test.string_input)
+			if test.expected_points != result {
+				t.Errorf("expected %q result %q", strconv.Itoa(test.expected_points), strconv.Itoa(result))
 			}
 		}
 	})
