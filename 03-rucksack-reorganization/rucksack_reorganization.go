@@ -11,5 +11,14 @@ func GetPriorityValueOfCharacter(character rune) int {
 }
 
 func GetCharactersExistingInBothSlices(slice_1 []rune, slice_2 []rune) []rune {
-	return []rune{'a'}
+	duplicate_characters := []rune{}
+
+	for _, slice_1_char := range slice_1 {
+		for _, slice_2_char := range slice_2 {
+			if slice_1_char == slice_2_char {
+				duplicate_characters = append(duplicate_characters, slice_1_char)
+			}
+		}
+	}
+	return duplicate_characters
 }
