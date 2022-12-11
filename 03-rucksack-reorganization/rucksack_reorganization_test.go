@@ -47,6 +47,8 @@ var characters_in_both_slices_test_set = []struct {
 }{
 	{[]rune{'a'}, []rune{'a'}, []rune{'a'}},
 	{[]rune{'a', 'b', 'c'}, []rune{'d', 'e', 'f'}, []rune{}},
+	{[]rune{'a', 'b', 'c'}, []rune{'a', 'b', 'f'}, []rune{'a', 'b'}},
+	{[]rune{'d', 'e', 'f'}, []rune{'d', 'e', 'f'}, []rune{'d', 'e', 'f'}},
 }
 
 func TestGetCharactersExistingInBothSlices(t *testing.T) {
