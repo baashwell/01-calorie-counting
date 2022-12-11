@@ -92,6 +92,8 @@ var get_priority_of_duplicated_characters_test_set = []struct {
 }{
 	{[]rune{'a', 'a'}, 1},
 	{[]rune{'a', 'b', 'c', 'd'}, 0},
+	{[]rune{'a', 'b', 'c', 'a'}, 1},
+	{[]rune{'F', 'G', 'F', 'G'}, 65},
 }
 
 func TestGetPriorityOfDuplicatedCharactersInRucksackCompartments(t *testing.T) {
