@@ -39,3 +39,24 @@ func TestGetPriorityValueOfCharacter(t *testing.T) {
 		}
 	})
 }
+
+var characters_in_both_slices_test_set = []struct {
+	slice_1 []rune
+	slice_2 []rune
+	result  []rune
+}{
+	{[]rune{'a'}, []rune{'a'}, []rune{'a'}},
+}
+
+func TestGetCharactersExistingInBothSlices(t *testing.T) {
+	t.Run("Test characters are X when slices are Y and Z", func(t *testing.T) {
+		for _, test := range characters_in_both_slices_test_set {
+			result := GetCharactersExistingInBothSlices(test.slice_1, test.slice_2)
+			for i, character := range result {
+				if character != test.result[i] {
+					t.Errorf("expected %q result %q", character, result[i])
+				}
+			}
+		}
+	})
+}

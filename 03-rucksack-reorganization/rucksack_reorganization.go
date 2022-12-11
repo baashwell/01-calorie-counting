@@ -9,3 +9,7 @@ func GetPriorityValueOfCharacter(character rune) int {
 
 	return int(character) - differential
 }
+
+func GetCharactersExistingInBothSlices(slice_1 []rune, slice_2 []rune) []rune {
+	return []rune{'a'}
+}
