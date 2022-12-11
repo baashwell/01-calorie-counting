@@ -3,10 +3,11 @@ package rucksack_reorganization
 import "testing"
 
 var character_priority_test_set = []struct {
-	character         string
+	character         rune
 	expected_priority int
 }{
-	{"a", 1},
+	{'a', 1},
+	{'b', 2},
 }
 
 func TestGetPriorityValueOfCharacter(t *testing.T) {
