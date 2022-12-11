@@ -1,6 +1,9 @@
 package rucksack_reorganization
 
-import "testing"
+import (
+	"strconv"
+	"testing"
+)
 
 var character_priority_test_set = []struct {
 	character         rune
@@ -15,6 +18,15 @@ var character_priority_test_set = []struct {
 	{'t', 20},
 	{'v', 22},
 	{'z', 26},
+	{'A', 27},
+	{'B', 28},
+	{'C', 29},
+	{'D', 30},
+	{'M', 39},
+	{'R', 44},
+	{'T', 46},
+	{'V', 48},
+	{'Z', 52},
 }
 
 func TestGetPriorityValueOfCharacter(t *testing.T) {
@@ -22,7 +34,7 @@ func TestGetPriorityValueOfCharacter(t *testing.T) {
 		for _, test := range character_priority_test_set {
 			result := GetPriorityValueOfCharacter(test.character)
 			if test.expected_priority != result {
-				t.Errorf("expected %q result %q", test.expected_priority, result)
+				t.Errorf("expected %q result %q", strconv.Itoa(test.expected_priority), strconv.Itoa(result))
 			}
 		}
 	})

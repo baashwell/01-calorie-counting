@@ -1,5 +1,11 @@
 package rucksack_reorganization
 
 func GetPriorityValueOfCharacter(character rune) int {
-	return int(character) - 96
+	differential := 38
+
+	if character >= 97 {
+		differential = 96
+	}
+
+	return int(character) - differential
 }
