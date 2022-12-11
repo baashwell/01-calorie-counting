@@ -85,3 +85,21 @@ func TestGetTotalPriorityOfSlice(t *testing.T) {
 		}
 	})
 }
+
+var get_priority_of_duplicated_characters_test_set = []struct {
+	rucksack          []rune
+	expected_priority int
+}{
+	{[]rune{'a', 'a'}, 1},
+}
+
+func TestGetPriorityOfDuplicatedCharactersInRucksackCompartments(t *testing.T) {
+	t.Run("Test total priority of duplicated items in rucksack compartments is X when rucksack is Y", func(t *testing.T) {
+		for _, test := range get_priority_of_duplicated_characters_test_set {
+			result := GetPriorityOfDuplicatedCharactersInRucksackCompartments(test.rucksack)
+			if test.expected_priority != result {
+				t.Errorf("expected %q result %q", strconv.Itoa(test.expected_priority), strconv.Itoa(result))
+			}
+		}
+	})
+}

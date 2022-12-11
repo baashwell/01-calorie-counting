@@ -32,3 +32,24 @@ func GetTotalPriorityOfSlice(slice []rune) int {
 
 	return total
 }
+
+func GetPriorityOfDuplicatedCharactersInRucksackCompartments(rucksack []rune) int {
+	compartments := GetRucksackCompartments(rucksack)
+	duplicate_items := GetCharactersExistingInBothSlices(compartments[0], compartments[1])
+	return GetTotalPriorityOfSlice(duplicate_items)
+}
+
+func GetRucksackCompartments(rucksack []rune) [][]rune {
+	compartments := make([][]rune, 2)
+	compartment_size := len(rucksack) / 2
+
+	for i, character := range rucksack {
+		if i >= compartment_size {
+			compartments[1] = append(compartments[1], character)
+		} else {
+			compartments[0] = append(compartments[0], character)
+		}
+	}
+
+	return compartments
+}
