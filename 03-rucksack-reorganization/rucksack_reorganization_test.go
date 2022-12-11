@@ -69,6 +69,10 @@ var total_priority_of_slice_test_set = []struct {
 	expected_priority int
 }{
 	{[]rune{'a'}, 1},
+	{[]rune{'a', 'f', 't'}, 27},
+	{[]rune{'A', 'F', 'T'}, 105},
+	{[]rune{'a', 'B', 'c', 'D'}, 62},
+	{[]rune{'a', 'b', 'C', 'D'}, 62},
 }
 
 func TestGetTotalPriorityOfSlice(t *testing.T) {

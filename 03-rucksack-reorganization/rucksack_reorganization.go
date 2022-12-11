@@ -24,5 +24,11 @@ func GetCharactersExistingInBothSlices(slice_1 []rune, slice_2 []rune) []rune {
 }
 
 func GetTotalPriorityOfSlice(slice []rune) int {
-	return 1
+	total := 0
+
+	for _, character := range slice {
+		total += GetPriorityValueOfCharacter(character)
+	}
+
+	return total
 }
