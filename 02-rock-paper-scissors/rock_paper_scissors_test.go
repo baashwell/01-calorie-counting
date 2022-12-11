@@ -124,6 +124,7 @@ var get_choice_to_make_test_set = []struct {
 }{
 	{Rock, Win, Paper},
 	{Rock, Lose, Scissors},
+	{Rock, Draw, Rock},
 }
 
 func TestGetChoiceToMakeResult(t *testing.T) {
