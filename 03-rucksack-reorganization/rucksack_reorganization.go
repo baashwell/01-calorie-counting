@@ -53,3 +53,7 @@ func GetRucksackCompartments(rucksack []rune) [][]rune {
 
 	return compartments
 }
+
+func GetPriorityOfMultipleRucksacks(input string) int {
+	return 1
+}
