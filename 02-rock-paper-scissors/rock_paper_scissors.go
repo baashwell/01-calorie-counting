@@ -96,5 +96,25 @@ func GetTotalPointsForPlayer(input string) int {
 }
 
 func GetChoiceToMake(opponent_choice Choice, result Result) Choice {
-	return Paper
+	choices := game_results[opponent_choice]
+	opposite_result := GetOppositeOfResult(result)
+
+	for key, element := range choices {
+		if element == opposite_result {
+			return key
+		}
+	}
+
+	return opponent_choice
+}
+
+func GetOppositeOfResult(result Result) Result {
+	switch result {
+	case Win:
+		return Lose
+	case Lose:
+		return Win
+	default:
+		return Draw
+	}
 }
